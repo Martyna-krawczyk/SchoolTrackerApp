@@ -30,8 +30,7 @@ namespace SchoolTracker
                     newStudent.Name = Util.Console.Ask("Student Name: ");
 
                     newStudent.Grade = (Util.Console.AskInt("Student Grade: "));
-
-                    //(School) below is cast -??  More info required here
+                    
                     newStudent.School = (School) Util.Console.AskInt("Student SchoolName: (type the corresponding number): 0: Hogwarts High \n 1: Harvard \n 2: MIT \n ");
 
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
@@ -58,6 +57,8 @@ namespace SchoolTracker
                     Console.WriteLine("Error - please try again");
                 }
             }
+            
+            ShowGrade(" Peter "); //here we pass in the name
 
             foreach (var student in students)
             {
@@ -65,6 +66,7 @@ namespace SchoolTracker
                 Exports();
             }
         }
+
 
         static void Import() //an example method which allows students to be imported
         {
@@ -90,5 +92,30 @@ namespace SchoolTracker
                 }
             }
         }
+
+        //The two methods below are searching the students for the grade of the student named Jim.
+        // static void ShowGrade(string name)
+        // {
+        //     var found = students.Find(Predicate);
+        //     Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
+        // }
+        //
+        // static bool Predicate(Student student)
+        // {
+        //     //if
+        //     return (student.Name == "Jim"); //This line replaces the if statement as it's doing the same thing 'syntactic sugar'
+        //     //     return true;
+        //     // else
+        //     //     return false;
+        // }
+        
+        //The above can be replaced with a lambda function:
+        static void ShowGrade(string name)
+         {
+            var found = students.Find(student => student.Name == name); //anonymous function (no name - predicate) in fully condensed form
+            
+            Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
+        }
+        
     }
 }
