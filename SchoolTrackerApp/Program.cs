@@ -31,7 +31,11 @@ namespace SchoolTracker
 
                     newStudent.Grade = (Util.Console.AskInt("Student Grade: "));
                     
-                    newStudent.School = (School) Util.Console.AskInt("Student SchoolName: (type the corresponding number): 0: Hogwarts High \n 1: Harvard \n 2: MIT \n ");
+                    newStudent.School = (School) Util.Console.AskInt("Student SchoolName: " +
+                                                                     "(type the corresponding number):\n " +
+                                                                     "0: Hogwarts High \n " +
+                                                                     "1: Harvard \n " +
+                                                                     "2: MIT \n ");
 
                     newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
 
@@ -50,7 +54,8 @@ namespace SchoolTracker
                 }
                 catch (FormatException msg)
                 {
-                    Console.WriteLine(msg.Message); //much more specific - needs to be first .Message will clean up the error
+                    Console.WriteLine(msg.Message); //much more specific - needs to be first
+                                                    //.Message will clean up the error
                 }
                 catch (Exception)
                 {
@@ -58,7 +63,7 @@ namespace SchoolTracker
                 }
             }
             
-            ShowGrade(" Peter "); //here we pass in the name
+            ShowGrade(" Peter "); //here we pass in the name for the search function
 
             foreach (var student in students)
             {
@@ -103,7 +108,8 @@ namespace SchoolTracker
         // static bool Predicate(Student student)
         // {
         //     //if
-        //     return (student.Name == "Jim"); //This line replaces the if statement as it's doing the same thing 'syntactic sugar'
+        //     return (student.Name == "Jim"); //This line replaces the if statement as it's
+        //                                     //doing the same thing 'syntactic sugar'
         //     //     return true;
         //     // else
         //     //     return false;
@@ -112,10 +118,10 @@ namespace SchoolTracker
         //The above can be replaced with a lambda function:
         static void ShowGrade(string name)
          {
-            var found = students.Find(student => student.Name == name); //anonymous function (no name - predicate) in fully condensed form
+             //anonymous function (no name - predicate - required) in fully condensed form
+            var found = students.Find(student => student.Name == name); 
             
             Console.WriteLine("{0}'s Grade: {1}", found.Name, found.Grade);
         }
-        
     }
 }

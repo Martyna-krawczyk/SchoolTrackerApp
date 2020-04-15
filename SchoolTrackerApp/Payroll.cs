@@ -9,7 +9,8 @@ namespace SchoolTrackerApp
     }
     class Payroll
     {
-        private List<IPayee> payees = new List<IPayee>(); //single list for many types of classes all inheriting from Interface
+        private List<IPayee> payees = new List<IPayee>(); //single list for many types of classes all
+                                                          //inheriting from Interface
         public Payroll()
         {
             payees.Add(new Teacher());
