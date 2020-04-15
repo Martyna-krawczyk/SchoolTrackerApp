@@ -4,10 +4,10 @@ namespace SchoolTrackerApp
 {
     class Student : Member
     {
-        static public int Count = 0;
-        public int Grade;
-        public string Birthday;
-        public School School;
+        static public int Count { get; set; } = 0;
+        public int Grade { get; set; }
+        public string Birthday { get; set; }
+        public School School { get; set; }
 
 
         public Student()
