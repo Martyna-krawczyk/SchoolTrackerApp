@@ -16,6 +16,10 @@ namespace SchoolTracker
         
         static void Main(string[] args)
         {
+            Logger.Log("Tracker started", priority: 0 ); //this is called a names argument and saves having
+                                                         //to provide the second argument (which is set to default)
+            
+            
             Payroll payroll = new Payroll();
             payroll.PayAll();
 
@@ -25,6 +29,8 @@ namespace SchoolTracker
             {
                 try
                 {
+                 Logger.Log("Adding new Student");
+                    
                     var newStudent = new Student();
 
                     newStudent.Name = Util.Console.Ask("Student Name: ");
